@@ -74,27 +74,6 @@
     </div>
 
     <script>
-        // document.getElementById('signupForm').addEventListener('submit', function(event) {
-        //     event.preventDefault();
-
-        //     var fullName = document.getElementById('fullName').value;
-        //     var email = document.getElementById('email').value;
-
-        //     if(fullName && email) {
-        //         fetch('https://script.google.com/macros/s/AKfycbxtLqmhB9PZ3SycR7rbezWzoGz-zxwZzFEjVWa_iC3GarVEfiQUpr2-rRtGDyLqaWu5YA/exec', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'text/plain'
-        //             },
-        //             body: JSON.stringify({fullName: fullName, email: email})
-        //         })
-        //         .catch(error => console.error('Error:', error));
-        //     } else {
-        //         alert('Please fill out both fields.');
-        //     }
-        //     window.location.href = 'https://www.mindscouter.com';
-        // });
-
         document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -102,31 +81,19 @@
             var email = document.getElementById('email').value;
 
             if(fullName && email) {
-                fetch('https://script.google.com/macros/s/AKfycbzBfTqO1cgFJYmBHQkt9TLc-49gHr0LDqHhsxBhn6QwHRJnZNCXynIP4bKiy06WiakbSg/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbw6xrixmR7eLYJ-k7uTDID_TMnxm8xE-OkV0Z7yXIfWaVMM7m1tgEciBrzxJ3Tsd2r1WQ/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'text/plain'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
-                .then(response =>{ 
-                    console.log("response to json = " + response.json());
-                    response.json();
+                .then(() => {
+                    // Since the response is opaque, you can't access the response body
+                    window.location.href = 'https://www.mindscouter.com';
                 })
-                .then(data => {
-                    if (data.result === 'success') {
-                        console.log("data.result is success");
-                        window.location.href = 'https://www.mindscouter.com';
-                    } else {
-                        console.log("data.result is unsuccess");
-                        alert('There was an error submitting the form. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    console.log("error = ", error)
-                    console.error('Error:', error)
-                });
+                .catch(error => console.error('Error:', error));
             } else {
                 alert('Please fill out both fields.');
             }
