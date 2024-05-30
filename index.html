@@ -88,13 +88,11 @@
                     },
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
-                .then(()=> {
-                    window.location.href = 'https://www.mindscouter.com';
-                })
                 .catch(error => console.error('Error:', error));
             } else {
                 alert('Please fill out both fields.');
             }
+            window.location.href = 'https://www.mindscouter.com';
         });
     </script>
 </body>
