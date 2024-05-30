@@ -84,8 +84,7 @@
                 fetch('https://script.google.com/macros/s/AKfycbxtLqmhB9PZ3SycR7rbezWzoGz-zxwZzFEjVWa_iC3GarVEfiQUpr2-rRtGDyLqaWu5YA/exec', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*'
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
