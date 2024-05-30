@@ -102,7 +102,7 @@
             var email = document.getElementById('email').value;
 
             if(fullName && email) {
-                fetch('https://script.google.com/macros/s/AKfycbxtLqmhB9PZ3SycR7rbezWzoGz-zxwZzFEjVWa_iC3GarVEfiQUpr2-rRtGDyLqaWu5YA/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbwxeBbZXz2JniqFcJbQYi1PtYIk7BThzwn83wZGIDo61spCnvHRFbQwx6Yb4_13e8_G1Q/exec', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'text/plain'
@@ -123,7 +123,7 @@
                     }
                 })
                 .catch(error => {
-                    console.log("error:", error)
+                    console.log("error = ", error)
                     console.error('Error:', error)
                 });
             } else {
