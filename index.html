@@ -74,6 +74,27 @@
     </div>
 
     <script>
+        // document.getElementById('signupForm').addEventListener('submit', function(event) {
+        //     event.preventDefault();
+
+        //     var fullName = document.getElementById('fullName').value;
+        //     var email = document.getElementById('email').value;
+
+        //     if(fullName && email) {
+        //         fetch('https://script.google.com/macros/s/AKfycbxtLqmhB9PZ3SycR7rbezWzoGz-zxwZzFEjVWa_iC3GarVEfiQUpr2-rRtGDyLqaWu5YA/exec', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'text/plain'
+        //             },
+        //             body: JSON.stringify({fullName: fullName, email: email})
+        //         })
+        //         .catch(error => console.error('Error:', error));
+        //     } else {
+        //         alert('Please fill out both fields.');
+        //     }
+        //     window.location.href = 'https://www.mindscouter.com';
+        // });
+
         document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -88,11 +109,18 @@
                     },
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        window.location.href = 'https://www.mindscouter.com';
+                    } else {
+                        alert('There was an error submitting the form. Please try again.');
+                    }
+                })
                 .catch(error => console.error('Error:', error));
             } else {
                 alert('Please fill out both fields.');
             }
-            window.location.href = 'https://www.mindscouter.com';
         });
     </script>
 </body>
