@@ -109,15 +109,23 @@
                     },
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
-                .then(response => response.json())
+                .then(response =>{ 
+                    console.log("response to json");
+                    response.json();
+                })
                 .then(data => {
                     if (data.result === 'success') {
+                        console.log("data.result is success");
                         window.location.href = 'https://www.mindscouter.com';
                     } else {
+                        console.log("data.result is unsuccess");
                         alert('There was an error submitting the form. Please try again.');
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    console.log("error:", error)
+                    console.error('Error:', error)
+                });
             } else {
                 alert('Please fill out both fields.');
             }
