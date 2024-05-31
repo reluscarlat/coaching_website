@@ -99,8 +99,14 @@ form button:hover {
         font-size: 1em;
     }
 
-    form input, form button {
+    form button {
         width: 100%;
         font-size: 1em;
+    }
+
+    form input {
+        width: 100% ;
+        font-size: 1em;
+        box-sizing: border-box;
     }
 }
