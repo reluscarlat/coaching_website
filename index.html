@@ -90,8 +90,9 @@
                     body: JSON.stringify({fullName: fullName, email: email})
                 })
                 .then(() => {
-                    // Since the response is opaque, you can't access the response body
                     window.location.href = 'https://www.mindscouter.com';
+                    document.getElementById("fullName").textContent = '';
+                    document.getElementById("email").textContent = '';
                 })
                 .catch(error => console.error('Error:', error));
             } else {
